@@ -9,11 +9,11 @@ public interface UserService {
 	
 	public List<User> findAll();
 	
-	public User findById(Long id);
+	public User findById(int id);
 	
 	public void save(User user);
 	
-	public void deleteById(Long id);
+	public void deleteById(int id);
 	
 	public void deleteAll();
 

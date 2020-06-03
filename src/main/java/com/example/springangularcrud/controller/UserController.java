@@ -46,7 +46,7 @@ public class UserController {
 	}
 	
 	@PostMapping("/save")
-	public String saveUser(@ModelAttribute("movie") User user, BindingResult result) {
+	public String saveUser(@ModelAttribute("user") User user, BindingResult result) {
 		// Save the user using the service
 		userService.save(user);
 		
@@ -54,7 +54,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/showUpdateForm")
-	public String showUpdateForm(@RequestParam("userId") Long id, Model model) {
+	public String showUpdateForm(@RequestParam("userId") int id, Model model) {
 		// Get user from the service
 		User user = userService.findById(id);
 		// Set user as a model attribute to pre-populate the form
@@ -64,7 +64,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/delete")
-	public String deleteUser(@RequestParam("userId") Long id) {
+	public String deleteUser(@RequestParam("userId") int id) {
 		// Delete the code record
 		userService.deleteById(id);
 		
