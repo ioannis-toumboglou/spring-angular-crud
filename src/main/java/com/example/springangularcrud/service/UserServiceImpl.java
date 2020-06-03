@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 import com.example.springangularcrud.dao.UserRepository;
 import com.example.springangularcrud.entity.User;
 
-
-
 @Service
 public class UserServiceImpl implements UserService {
 
