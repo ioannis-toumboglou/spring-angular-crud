@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.example.springangularcrud.entity.User;
 
-
 public interface UserService {
 	
 	public List<User> findAll();
@@ -14,7 +13,5 @@ public interface UserService {
 	public void save(User user);
 	
 	public void deleteById(int id);
-	
-	public void deleteAll();
 
 }

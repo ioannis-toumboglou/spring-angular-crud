@@ -25,17 +25,17 @@
 	<table class="table table-bordered table-striped">
 		<thead class="thead-dark">
 			<tr>
-				<th>Name</th>
-				<th style="width:5em;">Age</th>
-				<th style="width:8em;">E-mail</th>
-				<th style="width:10em;">Action</th>
+				<th style="width:12em; text-align:center">Name</th>
+				<th style="width:5em; text-align:center">Age</th>
+				<th style="width:12em; text-align:center">E-mail</th>
+				<th style="width:10em; text-align:center">Action</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="tempUser : ${users}" style="text-align:center; vertical-align:middle;">
-				<td th:text="${tempUser.name}" style="text-align:left;"/>
-				<td th:text="${tempUser.age}"/>
-				<td th:text="${tempUser.email}"/>
+				<td style="text-align:center" th:text="${tempUser.name}"/>
+				<td style="text-align:center" th:text="${tempUser.age}"/>
+				<td style="text-align:center" th:text="${tempUser.email}"/>
 				<td>
 					<a th:href="@{/users/showUpdateForm(userId=${tempUser.id})}" class="btn btn-info btn-sm">Update</a>
 					<a th:href="@{/users/delete(userId=${tempUser.id})}" class="btn btn-danger btn-sm" onclick="if (!(confirm('Are you sure you want to delete this user?'))) return false">Delete</a>

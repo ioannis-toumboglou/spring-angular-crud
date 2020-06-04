@@ -3,11 +3,11 @@
 CREATE DATABASE  IF NOT EXISTS `user_archive`;
 USE `user_archive`;
 
--- Table structure for table `user`
+-- Table structure for table `users`
 
-DROP TABLE IF EXISTS `user`;
+DROP TABLE IF EXISTS `users`;
 
-CREATE TABLE `user` (
+CREATE TABLE `users` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
   `age` int DEFAULT NULL,
