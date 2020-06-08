@@ -5,7 +5,7 @@ angular.module('crudApp').controller('UserController',
  
         var self = this;
         self.user = {};
-        self.users=[];
+        self.users = [];
  
         self.submit = submit;
         self.getAllUsers = getAllUsers;
@@ -25,7 +25,7 @@ angular.module('crudApp').controller('UserController',
         function submit() {
             console.log('Submitting');
             if (self.user.id === undefined || self.user.id === null) {
-                console.log('Saving New User', self.user);
+                console.log('Saving new user ', self.user);
                 createUser(self.user);
             } else {
                 updateUser(self.user, self.user.id);
@@ -40,14 +40,14 @@ angular.module('crudApp').controller('UserController',
                     function (response) {
                         console.log('User created successfully');
                         self.successMessage = 'User created successfully';
-                        self.errorMessage='';
+                        self.errorMessage = '';
                         self.done = true;
-                        self.user={};
+                        self.user = {};
                         $scope.myForm.$setPristine();
                     },
                     function (errResponse) {
                         console.error('Error while creating User');
-                        self.errorMessage = 'Error while creating User: ' + errResponse.data.errorMessage;
+                        self.errorMessage = 'Error while creating User: ' + id + ', Error: ' + errResponse.data.errorMessage;
                         self.successMessage='';
                     }
                 );
@@ -55,34 +55,34 @@ angular.module('crudApp').controller('UserController',
  
  
         function updateUser(user, id){
-            console.log('About to update user');
+            console.log('About to update user with id: ' + id);
             UserService.updateUser(user, id)
                 .then(
                     function (response){
                         console.log('User updated successfully');
-                        self.successMessage='User updated successfully';
-                        self.errorMessage='';
+                        self.successMessage = 'User updated successfully';
+                        self.errorMessage = '';
                         self.done = true;
                         $scope.myForm.$setPristine();
                     },
                     function(errResponse){
                         console.error('Error while updating User');
-                        self.errorMessage='Error while updating User '+errResponse.data;
-                        self.successMessage='';
+                        self.errorMessage = 'Error while updating user ' + id + ', Error: ' + errResponse.data.errorMessage;
+                        self.successMessage = '';
                     }
                 );
         }
  
  
         function removeUser(id){
-            console.log('About to remove User with id '+id);
+            console.log('About to remove user with id: ' + id);
             UserService.removeUser(id)
                 .then(
                     function(){
-                        console.log('User '+id + ' removed successfully');
+                        console.log('User ' + id + ' removed successfully');
                     },
                     function(errResponse){
-                        console.error('Error while removing user '+id +', Error :'+errResponse.data);
+                        console.error('Error while removing user ' + id + ', Error:' + errResponse.data);
                     }
                 );
         }
@@ -93,21 +93,22 @@ angular.module('crudApp').controller('UserController',
         }
  
         function editUser(id) {
-            self.successMessage='';
-            self.errorMessage='';
+            self.successMessage = '';
+            self.errorMessage = '';
             UserService.getUser(id).then(
                 function (user) {
                     self.user = user;
                 },
                 function (errResponse) {
-                    console.error('Error while removing user ' + id + ', Error :' + errResponse.data);
+                    console.error('Error while removing user ' + id + ', Error: ' + errResponse.data.errorMessage);
                 }
             );
         }
+        
         function reset(){
-            self.successMessage='';
-            self.errorMessage='';
-            self.user={};
+            self.successMessage = '';
+            self.errorMessage = '';
+            self.user = {};
             $scope.myForm.$setPristine(); //reset Form
         }
     }
