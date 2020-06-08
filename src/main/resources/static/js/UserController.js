@@ -112,4 +112,5 @@ angular.module('crudApp').controller('UserController',
             $scope.myForm.$setPristine(); //reset Form
         }
     }
+    
 ]);
