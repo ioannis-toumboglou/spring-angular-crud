@@ -1,22 +1,17 @@
 package com.example.springangularcrud.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/users")
 public class AppController {
 
-	@RequestMapping("/")
-	public String home(ModelMap model) {
-		model.addAttribute("title", "CRUD Example");
+	@GetMapping("/list")
+	public String home() {
 		
-		return "index";
+		return "users/UserManagement";
 	}
-	
-	@RequestMapping("/partials/{page}")
-	public String partialHandler(@PathVariable("page") final String page) {
-		return page;
-	}
+
 }
