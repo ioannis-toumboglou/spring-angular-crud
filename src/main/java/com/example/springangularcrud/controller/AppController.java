@@ -11,7 +11,7 @@ public class AppController {
 	@GetMapping("/list")
 	public String home() {
 		
-		return "users/UserManagement";
+		return "users/user-management";
 	}
 
 }
