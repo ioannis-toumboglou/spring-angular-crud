@@ -17,7 +17,7 @@ public class User {
 	private int id;
 	
 	@Column(name="name", nullable=false)
-	private String name;
+	private String username;
 	
 	@Column(name="age", nullable=false)
 	private int age;
@@ -36,11 +36,11 @@ public class User {
 	}
 
 	public String getName() {
-		return name;
+		return username;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String username) {
+		this.username = username;
 	}
 
 	public int getAge() {
@@ -61,7 +61,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", age=" + age + ", email=" + email + "]";
+		return "User [id=" + id + ", username=" + username + ", age=" + age + ", email=" + email + "]";
 	}
 	
 }
