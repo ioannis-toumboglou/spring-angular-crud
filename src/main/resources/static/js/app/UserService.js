@@ -17,7 +17,7 @@ angular.module('myApp').factory('UserService', ['$http', '$q', function($http, $
         var deferred = $q.defer();
         $http.get(REST_SERVICE_URI)
             .then(
-            function (response) {
+            function(response) {
                 deferred.resolve(response.data);
             },
             function(errResponse) {
