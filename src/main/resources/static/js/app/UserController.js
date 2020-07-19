@@ -1,18 +1,19 @@
 'use strict';
  
 angular.module('myApp').controller('UserController', ['$scope', 'UserService', function($scope, UserService) {
-    $scope.user = {
+    var self = this;
+	self.user = {
     			 id: null, 
     			 name: '', 
     			 age: '', 
     			 email: ''
     			};
-    $scope.users = [];
+    self.users = [];
     
-    $scope.submit = submit;
-    $scope.edit = edit;
-    $scope.remove = remove;
-    $scope.reset = reset;
+    self.submit = submit;
+    self.edit = edit;
+    self.remove = remove;
+    self.reset = reset;
  
  
     fetchAllUsers();
@@ -21,8 +22,8 @@ angular.module('myApp').controller('UserController', ['$scope', 'UserService', f
         UserService.fetchAllUsers()
             .then(
             function(d) {
-            	$scope.users = d;
-                console.log($scope.users);
+            	self.users = d;
+                console.log(self.users);
             },
             function(errResponse){
                 console.error('Error while fetching Users');
@@ -61,21 +62,21 @@ angular.module('myApp').controller('UserController', ['$scope', 'UserService', f
     }
  
     function submit() {
-        if ($scope.user.id === null) {
-            console.log('Saving New User:', $scope.user);
-            createUser($scope.user);
+        if (self.user.id === null) {
+            console.log('Saving New User:', self.user);
+            createUser(self.user);
         } else {
-            updateUser($scope.user, $scope.user.id);
-            console.log('User updated with id:', $scope.user.id);
+            updateUser(self.user, self.user.id);
+            console.log('User updated with id:', self.user.id);
         }
         reset();
     }
  
     function edit(id) {
         console.log('Id to be edited:', id);
-        for (var i = 0; i < $scope.users.length; i++) {
-            if ($scope.users[i].id === id) {
-            	$scope.user = angular.copy($scope.users[i]);
+        for (var i = 0; i < self.users.length; i++) {
+            if (self.users[i].id === id) {
+            	self.user = angular.copy(self.users[i]);
                 break;
             }
         }
@@ -83,15 +84,15 @@ angular.module('myApp').controller('UserController', ['$scope', 'UserService', f
  
     function remove(id) {
         console.log('Id to be deleted:', id);
-        if ($scope.user.id === id) { 
+        if (self.user.id === id) { 
             reset();	//clean form if the user to be deleted is shown there.
         }
         deleteUser(id);
     }
  
     function reset() {
-    	$scope.user={id:null, name:'', age:'', email:''};
-        $scope.myForm.$setPristine();	//reset Form
+    	self.user={id:null, name:'', age:'', email:''};
+    	$scope.myForm.$setPristine();	//reset Form
     }
  
 }]);
