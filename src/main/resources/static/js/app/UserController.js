@@ -40,7 +40,8 @@ angular.module('myApp').controller('UserController', ['$scope', 'UserService', f
         );
     }
  
-    function updateUser(user, id) {
+    function updateUser(user) {
+    	let id = extractId(user);
         UserService.updateUser(user, id)
             .then(
             fetchAllUsers,
@@ -62,26 +63,25 @@ angular.module('myApp').controller('UserController', ['$scope', 'UserService', f
  
     function submit() {
         if (self.user.id === null) {
-            console.log('Saving New User:', self.user);
             createUser(self.user);
+            console.log('Saving New User:', self.user);
         } else {
-            updateUser(self.user, self.user.id);
-            console.log('User updated with id:', self.user.id);
+            updateUser(self.user);
+            let id = extractId(self.user);
+            console.log('User updated with id:', id);
         }
         reset();
     }
  
-    function edit(id) {
+    function edit(user) {
+    	let id = extractId(user);
         console.log('Id to be edited:', id);
-        for (var i = 0; i < self.users.length; i++) {
-            if (self.users[i].id === id) {
-            	self.user = angular.copy(self.users[i]);
-                break;
-            }
-        }
+        self.user = user;
+        self.user.id = id;
     }
  
-    function remove(id) {
+    function remove(user) {
+    	let id = extractId(user);
         console.log('Id to be deleted:', id);
         if (self.user.id === id) { 
             reset();	//clean form if the user to be deleted is shown there.
@@ -90,8 +90,14 @@ angular.module('myApp').controller('UserController', ['$scope', 'UserService', f
     }
  
     function reset() {
-    	self.user={id:null, name:'', age:'', email:''};
+    	self.user = {id:null, name:'', age:'', email:''};
     	$scope.myForm.$setPristine();	//reset Form
     }
- 
+    
+    function extractId(user) {
+    	let url = user.links[1].href.split("/");
+    	let id = url[url.length-1];
+    	return id;
+    }
+    
 }]);

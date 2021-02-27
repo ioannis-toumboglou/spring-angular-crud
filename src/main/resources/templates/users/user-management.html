@@ -23,6 +23,7 @@
     </style>  
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
      <link type="text/css" rel="stylesheet" href="../../css/app.css">
+     <link rel="shortcut icon" href="#">
   </head>
   <body ng-app="myApp" class="ng-cloak">
       <div class="generic-container" ng-controller="UserController as ctrl">
@@ -94,7 +95,9 @@
                               <td><span ng-bind="user.age"></span></td>
                               <td><span ng-bind="user.email"></span></td>
                               <td>
-                              	<button type="button" ng-click="ctrl.edit(user.id)" class="btn btn-success custom-width">Edit</button>  <button type="button" ng-click="ctrl.remove(user.id)" class="btn btn-danger custom-width">Remove</button>
+                              	<button type="button" ng-click="ctrl.edit(user)" class="btn btn-success custom-width">Edit</button>  
+                              	<button type="button" ng-click="ctrl.remove(user)" class="btn btn-danger custom-width" 
+                              		onclick="if (!(confirm('Are you sure you want to delete this user?'))) return false">Remove</button>
                               </td>
                           </tr>
                       </tbody>

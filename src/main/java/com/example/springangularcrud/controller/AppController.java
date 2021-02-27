@@ -12,6 +12,7 @@ public class AppController {
 	public String home() {
 		
 		return "users/user-management";
+		
 	}
 
 }
