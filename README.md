@@ -5,7 +5,7 @@
 <b>Description:</b>
 
 A simple one-page application that performs CRUD operations and is used for user registration.
-It uses <b>Spring Boot</b> and a <b>MySQL</b> database in the backend and also <b>AngularJS</b> in the frontend.
+It uses <b>Spring Boot</b> and <b>MySQL</b> in the backend and also <b>AngularJS</b> in the frontend.
 
 <br><br>
 <b>Technologies used:</b>
