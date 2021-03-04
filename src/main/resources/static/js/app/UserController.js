@@ -2,18 +2,19 @@
  
 angular.module('myApp').controller('UserController', ['$scope', 'UserService', function($scope, UserService) {
     var self = this;
-	self.user = {
-    			 id: null, 
-    			 name: '', 
-    			 age: '', 
-    			 email: ''
-    			};
+    self.user = {
+  			 id: null, 
+  			 name: '', 
+  			 age: '', 
+  			 email: ''
+  			};
     self.users = [];
     
     self.submit = submit;
     self.edit = edit;
     self.remove = remove;
     self.reset = reset;
+    $scope.isListEmpty = null;
  
  
     fetchAllUsers();
@@ -23,6 +24,7 @@ angular.module('myApp').controller('UserController', ['$scope', 'UserService', f
             .then(
             function(d) {
             	self.users = d.content;
+            	$scope.isListEmpty = self.users[0].name ? false : true;
             },
             function(errResponse){
                 console.error('Error while fetching Users');

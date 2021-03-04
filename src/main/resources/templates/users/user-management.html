@@ -67,9 +67,7 @@
                               <th width="20%"></th>
                           </tr>
                       </thead>
-                      <tbody>
-                      <tr>
-                      </tr>
+                      <tbody ng-show="!isListEmpty">
                           <tr ng-repeat="user in ctrl.users">
                               <td><span ng-bind="user.name"></span></td>
                               <td><span ng-bind="user.age"></span></td>
