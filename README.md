@@ -23,3 +23,24 @@ It uses <b>Spring Boot</b> and <b>MySQL</b> in the backend and <b>AngularJS</b> 
 # 
 
 <br><br>
+<div align="center">
+	<kbd><img src="./images/01.main-form.png" width="650" /></kbd>
+	<br><br>
+	<b>Image 1 - Main form</b>
+</div>
+<br><br>
+<br><br>
+<div align="center">
+	<kbd><img src="./images/02.list-creation.png" width="650" /></kbd>
+	<br><br>
+	<b>Image 2 - Add user</b>
+</div>
+<br><br>
+<br><br>
+<div align="center">
+	<kbd><img src="./images/03.delete-user.png" width="650" /></kbd>
+	<br><br>
+	<b>Image 3 - Delete user</b>
+</div>
+<br><br>
+<br><br>
