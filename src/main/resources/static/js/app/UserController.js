@@ -16,7 +16,6 @@ angular.module('myApp').controller('UserController', ['$scope', 'UserService', f
     self.reset = reset;
     $scope.isListEmpty = null;
  
- 
     fetchAllUsers();
  
     function fetchAllUsers() {
