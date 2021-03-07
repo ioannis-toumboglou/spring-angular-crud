@@ -88,7 +88,10 @@ angular.module('myApp').controller('UserController', ['$scope', 'UserService', f
         if (self.user.id === id) { 
             reset();	//clean form if the user to be deleted is shown there.
         }
-        deleteUser(id);
+        let userConfirmation = confirm('Are you sure you want to delete this user?');
+        if (userConfirmation) {
+        	deleteUser(id);
+        }
     }
  
     function reset() {
