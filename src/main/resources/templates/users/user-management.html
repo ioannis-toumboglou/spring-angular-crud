@@ -29,7 +29,7 @@
                           <div class="form-group col-md-12">
                               <label class="col-md-2 control-lable" for="address">Age</label>
                               <div class="col-md-7">
-                                  <input type="text" ng-model="ctrl.user.age" id="age" class="form-control input-sm" placeholder="Enter your age"/>
+                                  <input type="number" min="0" max="150" ng-model="ctrl.user.age" id="age" class="form-control input-sm" placeholder="Enter your age" required />
                               </div>
                           </div>
                       </div>
