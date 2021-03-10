@@ -17,7 +17,7 @@
                               <label class="col-md-2 control-lable" for="name">Name</label>
                               <div class="col-md-7">
                                   <input name="name" type="text" ng-model="ctrl.user.name" id="name" class="name form-control input-sm" placeholder="Enter your name" required ng-minlength="3"/>
-                                  <div class="has-error" ng-show="myForm.name.$dirty">
+                                  <div class="has-error" ng-show="myForm.name.$touched">
                                       <span ng-show="myForm.name.$error.required">This is a required field</span>
                                       <span ng-show="myForm.name.$error.minlength">Minimum length required is 3</span>
                                   </div>
@@ -29,7 +29,7 @@
                               <label class="col-md-2 control-lable" for="age">Age</label>
                               <div class="col-md-7">
                                   <input name="age" type="number" min="0" max="120" step="1" ng-model="ctrl.user.age" id="age" class="age form-control input-sm" placeholder="Enter your age" required />
-                              	  <div class="has-error" ng-show="myForm.age.$dirty">
+                              	  <div class="has-error" ng-show="myForm.age.$touched">
                                       <span ng-show="myForm.age.$error.required">This is a required field</span>
                                       <span ng-show="myForm.age.$error.min">Minimum age is 0</span>
                                       <span ng-show="myForm.age.$error.max">Maximum age is 120</span>
@@ -42,7 +42,7 @@
                               <label class="col-md-2 control-lable" for="email">E-mail</label>
                               <div class="col-md-7">
                                   <input name="email" type="email" ng-model="ctrl.user.email" id="email" class="email form-control input-sm" placeholder="Enter your e-mail" required/>
-                                  <div class="has-error" ng-show="myForm.email.$dirty">
+                                  <div class="has-error" ng-show="myForm.email.$touched">
                                       <span ng-show="myForm.email.$error.required">This is a required field</span>
                                   </div>
                               </div>
