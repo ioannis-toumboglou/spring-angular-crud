@@ -97,6 +97,7 @@ angular.module('myApp').controller('UserController', ['$scope', 'UserService', f
     	self.user = {id:null, name:'', age:'', email:''};
     	$scope.myForm.$setPristine();	//reset Form
     	$scope.myForm.$setUntouched();  //clear error messages
+    	document.getElementById("age").value = null;
     }
     
     function extractId(user) {
