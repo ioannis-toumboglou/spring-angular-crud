@@ -44,3 +44,10 @@ It uses <b>Spring Boot</b> and <b>MySQL</b> in the backend and <b>AngularJS</b> 
 </div>
 <br><br>
 <br><br>
+<div align="center">
+	<kbd><img src="./images/04.filling-fields-warnings.png" width="650" /></kbd>
+	<br><br>
+	<b>Image 4 - Filling the fields & warnings</b>
+</div>
+<br><br>
+<br><br>
